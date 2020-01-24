@@ -20,7 +20,8 @@ import AuthenticationServices
 
 Step 4: Create Apple SignIn Button
 
-@objc private func signInButtonAction() {
+   
+        @objc private func signInButtonAction() {
             if #available(iOS 13.0, *) {
                 let authorizationProvider = ASAuthorizationAppleIDProvider()
                 let request = authorizationProvider.createRequest()
@@ -35,10 +36,13 @@ Step 4: Create Apple SignIn Button
             }
             
         }
+    
 
 Step 5: Implement ASAuthorizationControllerDelegate (Copy and paste from the attached demo) AppleUser is a custom model class that store user information.
 We only get user Name and Email first time in the app and when we authenticate it another time we only get identifier. To preserve the user data we are saving it in the Keychain so that we can use this data even later to save on server or access it later. 
- @available(iOS 13.0, *)
+
+
+    @available(iOS 13.0, *)
     extension AppleSignIn: ASAuthorizationControllerDelegate {
         
         func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
